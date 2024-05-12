@@ -6,8 +6,9 @@ plugins {
 
 android {
     compileSdk = 34
-    buildToolsVersion = "34.0.3"
+    //buildToolsVersion = "34.0.3"
     namespace = "com.example.myapplication"
+    buildToolsVersion = "34.0.0-rc3" // version that is available
 
     defaultConfig {
         applicationId = "com.example.myapplication"
