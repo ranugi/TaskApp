@@ -20,14 +20,15 @@
         />
 
     <TextView
+        android:id="@+id/taskTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/new_task"
-        android:id="@+id/taskTitle"
+        android:text="New Task"
         android:textSize="30sp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         style="@style/TextAppearance.AppCompat.Title"/>
+
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -60,14 +61,14 @@
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/timePickerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:text="Select Time"
-        />
+        android:text="Select Time"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveButton"
@@ -77,6 +78,6 @@
         android:layout_marginHorizontal="20dp"
         android:backgroundTint="?attr/colorPrimary"
         android:textColor="?colorOnPrimary"
-        android:text="Save" />
+        android:text="Save"/>
 
 </LinearLayout>
