@@ -1,11 +1,14 @@
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(var layoutManager: LinearLayoutManager) : AppCompatActivity(), TaskItemClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var taskViewModel: TaskViewModel // Declare taskViewModel variable
 
@@ -19,11 +22,28 @@ class MainActivity : AppCompatActivity() {
             NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
         }
 
-//        taskViewModel.name.observe(this) {
-//            binding.taskName.text = String.format("Task Name: %s", it)
-//        }
-//        taskViewModel.desc.observe(this) {
-//            binding.taskDesc.text = String.format("Task Description: %s", it)
-//        }
+        setRecyclerView()
+
+    }
+    private fun setRecyclerView()
+    {
+        val mainActivity = this
+        taskViewModel.taskItems.observe(this) {
+            binding.todoListRecyclerView.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                adapter = TaskItemAdapter(it!!, mainActivity)
+            }
+        }
+    }
+
+    override fun editTaskItem(taskItem: TaskItem)
+    {
+        NewTaskSheet(taskItem).show(supportFragmentManager, "newTaskTag")
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun completeTaskItem(taskItem: TaskItem)
+    {
+        taskViewModel.setCompleted(taskItem)
     }
 }
