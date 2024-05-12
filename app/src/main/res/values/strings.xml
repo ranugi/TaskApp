@@ -6,4 +6,6 @@
     <string name="checkbox">CheckBox</string>
     <string name="place_holder">Place Holder</string>
     <string name="newTask">New Task</string>
+    <string name="task_ease">Task Ease</string>
+    <string name="task_easey">Task Ease!</string>
 </resources>

@@ -8,6 +8,18 @@
     tools:context=".NewTaskSheet">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/topic"
+        android:text="Task Ease"
+        android:textSize="23sp"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"
+        android:background="@color/teal_200"
+        android:layout_gravity="start"
+        />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/new_task"
@@ -48,6 +60,14 @@
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/timePickerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:text="Select Time"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveButton"
@@ -55,6 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?colorOnPrimary"
         android:text="Save" />
 
 </LinearLayout>

@@ -8,7 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.ActivityMainBinding
 
-class MainActivity(var layoutManager: LinearLayoutManager) : AppCompatActivity(), TaskItemClickListener {
+class MainActivity : AppCompatActivity(), TaskItemClickListener
+{
     private lateinit var binding: ActivityMainBinding
     private lateinit var taskViewModel: TaskViewModel // Declare taskViewModel variable
 
@@ -16,8 +17,11 @@ class MainActivity(var layoutManager: LinearLayoutManager) : AppCompatActivity()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        taskViewModel =
-            ViewModelProvider(this).get(TaskViewModel::class.java) //initialized taskViewModel
+
+        //initial view model
+        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java) //initialized taskViewModel
+
+
         binding.newTaskButton.setOnClickListener {
             NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
         }
