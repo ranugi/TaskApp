@@ -11,6 +11,12 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
+enum class Priority {
+    HIGH,
+    MEDIUM,
+    LOW
+}
+
 @Entity(tableName = "task_item_table")
 class TaskItem(
             @ColumnInfo(name = "name") var name: String,
